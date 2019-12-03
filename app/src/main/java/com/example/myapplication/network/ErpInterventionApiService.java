@@ -15,6 +15,11 @@ public interface ErpInterventionApiService {
 
     // region GETTER ALL
     // region Used
+    @GET("forecast?{id}/{APPID}")
+    Call<List<Weather>> getForecastById(
+            @Query("id") Long cityId,
+            @Query("APPID") String apiKey
+    );
     // endregion Used
     // region Unused
 //
@@ -44,6 +49,7 @@ public interface ErpInterventionApiService {
     // region Used
     @GET("/api/weather/{city}")
     Call<Weather> getWeatherByName(@Path("city") String cityName);
+
     // endregion Used
     // region Unused
 //    // endregion Unused
