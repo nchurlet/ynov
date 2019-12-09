@@ -7,6 +7,8 @@ import retrofit2.Response;
 
 /**
  * Created by Nicolas Churlet on 12/04/2018.
+ * Rétrofit permet de faire un call (c) qui possède une méthode ".enqueue"
+ * La méthode enqueue
  */
 
 public class ApiRequest<T>

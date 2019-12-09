@@ -3,13 +3,15 @@ package com.example.myapplication.recyclerview.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.model.Machin
 import kotlinx.android.synthetic.main.item_machin.view.*
 
+/**
+ * Le Machin Adapter prend une liste de Machin / données. Tout l'intérêt de cet objet est que lorsqu'on l'utilise, on a
+ * juste à lui passer des données et il s'occupe de les afficher.
+ */
 class MachinAdapter(private val myDataset: MutableList<Machin>)  : RecyclerView.Adapter<MachinAdapter.MachinViewHolder>() {
 
     // Le MachinViewHolder prend en paramètre une View. Vous pourriez spécifier quelle type de vue (LinearLayout,
@@ -47,7 +49,7 @@ class MachinAdapter(private val myDataset: MutableList<Machin>)  : RecyclerView.
     // le boulot au RecyclerView. Mais pour qu'il le fasse vous devez lui dire ce qu'il doit faire à chaque fois.
     // Attention aux opérations longues ! Ce n'est pas ici qu'il faut les faire !
     override fun onBindViewHolder(holder: MachinViewHolder, position: Int) {
-        holder._label.text = myDataset[position].label
+        holder._label.text = myDataset[position].main
         holder._desc.text = myDataset[position].description
     }
 

@@ -14,10 +14,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class Weather (
+data class Forecast (
 
-	@SerializedName("id") val id : Int,
-	@SerializedName("main") val main : String,
-	@SerializedName("description") val description : String,
-	@SerializedName("icon") val icon : String
+    @SerializedName("dt") val dt : Int,
+    @SerializedName("main") val main : Main,
+    @SerializedName("weather") val weather : List<Weather>,
+    @SerializedName("clouds") val clouds : Clouds,
+    @SerializedName("wind") val wind : Wind,
+    @SerializedName("sys") val sys : Sys,
+    @SerializedName("dt_txt") val dt_txt : String
 )

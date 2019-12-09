@@ -14,10 +14,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class Weather (
+data class Main (
 
-	@SerializedName("id") val id : Int,
-	@SerializedName("main") val main : String,
-	@SerializedName("description") val description : String,
-	@SerializedName("icon") val icon : String
+	@SerializedName("temp") val temp : Double,
+	@SerializedName("temp_min") val temp_min : Double,
+	@SerializedName("temp_max") val temp_max : Double,
+	@SerializedName("pressure") val pressure : Int,
+	@SerializedName("sea_level") val sea_level : Int,
+	@SerializedName("grnd_level") val grnd_level : Int,
+	@SerializedName("humidity") val humidity : Int,
+	@SerializedName("temp_kf") val temp_kf : Double
 )

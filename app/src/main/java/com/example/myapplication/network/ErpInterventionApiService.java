@@ -1,6 +1,6 @@
 package com.example.myapplication.network;
 
-import com.example.myapplication.model.Affaire;
+import com.example.myapplication.model.ForecastResult;
 import com.example.myapplication.model.Weather;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -15,11 +15,7 @@ public interface ErpInterventionApiService {
 
     // region GETTER ALL
     // region Used
-    @GET("forecast?{id}/{APPID}")
-    Call<List<Weather>> getForecastById(
-            @Query("id") Long cityId,
-            @Query("APPID") String apiKey
-    );
+
     // endregion Used
     // region Unused
 //
@@ -47,8 +43,24 @@ public interface ErpInterventionApiService {
 
     // region GETT BY ID
     // region Used
+    /**
+     * Pour chaque champ de type requete="valeur" ajoutez un @Query et le paramètre. N'oubliez pas de préciser le type.
+     * @param cityId à récupérer à la main sur la doc de l'API pour ce projet. Mais il est possible de récupérer les
+     *               données dans le Json fourni par l'API
+     * @param apiKey
+     * @param count C'est ce nombre qui va fournir une liste. Il détermine le nombre de prévisions météo rendues par la
+     *              requête
+     * @return Une prévision météo qui contient une liste de prévisions par créneau horaire
+     */
+    @GET("forecast?units=metric&lang=fr")
+    Call<ForecastResult> getForecastById(
+            @Query("id") Long cityId,
+            @Query("APPID") String apiKey,
+            @Query("cnt") int count
+    );
+
     @GET("/api/weather/{city}")
-    Call<Weather> getWeatherByName(@Path("city") String cityName);
+    Call<ForecastResult> getWeatherByName(@Path("city") String cityName);
 
     // endregion Used
     // region Unused
